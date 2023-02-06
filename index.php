@@ -13,10 +13,10 @@
     <tr>
       <th>ID</th>
       <th>NOMBRE</th>
-      <th>APELLIDO PATERNO</th>
-      <th>APELLIDO MATERNO</th>
-      <th>PROMEDIO ACTUAL</th>
-      <th>FECHA DE INGRESO</th>
+      <th>CANTIDAD</th>
+      <th>UNIDAD</th>
+      <!-- <th>PROMEDIO ACTUAL</th> -->
+      <!-- <th>FECHA DE INGRESO</th> -->
     </tr>
   
 
@@ -25,8 +25,8 @@
     // variables para la conexion //
     $host = "localhost";
     $usuario = "root";
-    $contraseña = "LOKOTE2000";
-    $nombrebd = "bdalumnos";
+    $contraseña = ".Root123";
+    $nombrebd = "trabajo_extra";
 
     // conexion bd // 
     $con = mysqli_connect($host,$usuario,$contraseña,$nombrebd);
@@ -37,17 +37,18 @@
     // echo "la conexion se establecio con exito";
 
     // crear consulta //
-    $consulta = "SELECT * FROM ALUMNOS";
+    $consulta = "SELECT * FROM materias_primas";
+
     $resultado = mysqli_query($con, $consulta); 
     if(mysqli_num_rows($resultado) > 0){
     while($row=mysqli_fetch_assoc($resultado)){
       echo "<tr>";
-      echo '<td>'.$row['ID'].'</br>';
-      echo '<td>'.$row['NOMBRE'].'</br>';
-      echo '<td>'.$row['APELLIDO_PATERNO'].'</br>';
-      echo '<td>'.$row['APELLIDO_MATERNO'].'</br>';
-      echo '<td>'.$row['PROMEDIO_ACTUAL'].'</br>';
-      echo '<td>'.$row['FECHA_INGRESO'].'</br>';
+      echo '<td>'.$row['id'].'</br>';
+      echo '<td>'.$row['nombre'].'</br>';
+      echo '<td>'.$row['cantidad'].'</br>';
+      echo '<td>'.$row['unidad_de_medidas'].'</br>';
+      // echo '<td>'.$row['PROMEDIO_ACTUAL'].'</br>';
+      // echo '<td>'.$row['FECHA_INGRESO'].'</br>';
       echo  "</tr>";
     }
 
@@ -57,10 +58,5 @@
 
   ?> 
   </table>
-  <IMPUT>
-    
-  </IMPUT>
-
-
 </body>
 </html>
